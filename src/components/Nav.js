@@ -2,7 +2,7 @@ import logo from "../assets/logo.png";
 
 import styles from "../assets/css/home.module.css";
 
-function Home() {
+function Nav() {
   const types = ["Fire", "Water", "Plant"];
   function defineStyle(type) {
     switch (type) {
@@ -49,4 +49,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Nav;
