@@ -1,6 +1,5 @@
 import logo from "../assets/logo.png";
-
-import styles from "../assets/css/home.module.css";
+import styles from "../assets/css/nav.module.css";
 
 function Nav() {
   const types = ["Fire", "Water", "Plant"];
