@@ -1,7 +1,28 @@
 import logo from "../assets/logo.png";
 
 import styles from "../assets/css/home.module.css";
+
 function Home() {
+  const types = ["Fire", "Water", "Plant"];
+  function defineStyle(type) {
+    switch (type) {
+      case "Fire":
+        return styles.fire;
+      case "Water":
+        return styles.water;
+      case "Plant":
+        return styles.plant;
+      default:
+        break;
+    }
+  }
+  const typesBtns = types.map((type) => {
+    return (
+      <li className={defineStyle(type)} key={type}>
+        {type}
+      </li>
+    );
+  });
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Gotta Route 'em All</h1>
@@ -20,6 +41,7 @@ function Home() {
           Search
         </button>
       </form>
+      <ul className={styles.typesCont}>{typesBtns}</ul>
       <a className={styles.about} href="/about">
         About
       </a>
