@@ -1,12 +1,11 @@
-import logo from "./assets/logo.png";
 import styles from "./assets/css/app.module.css";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <header className={styles.container}>
-      <img className={styles.logo} src={logo} alt="logo" />
-      <p>App in development by Aram Hekimian</p>
-    </header>
+    <div className={styles.container}>
+      <Home />
+    </div>
   );
 }
 
