@@ -1,5 +1,6 @@
 import logo from "../assets/logo.png";
 import styles from "../assets/css/nav.module.css";
+import { Link } from "react-router-dom";
 
 function Nav() {
   const types = ["Fire", "Water", "Plant"];
@@ -41,9 +42,9 @@ function Nav() {
         </button>
       </form>
       <ul className={styles.typesCont}>{typesBtns}</ul>
-      <a className={styles.about} href="/about">
+      <Link className={styles.about} to="/about">
         About
-      </a>
+      </Link>
     </div>
   );
 }
