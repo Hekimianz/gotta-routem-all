@@ -1,20 +1,25 @@
 import styles from "../assets/css/home.module.css";
 import Nav from "../components/Nav";
 import Card from "../components/Card";
+import { useEffect, useState } from "react";
 
 function Home({ data }) {
-  const cards = data.map((pokemon) => {
-    return (
-      <Card
-        img={pokemon.sprite}
-        name={pokemon.name}
-        type={pokemon.type}
-        cat={pokemon.category}
-        num={pokemon.number}
-        key={pokemon.number}
-      />
+  const [cards, setCards] = useState(null);
+  useEffect(() => {
+    setCards(
+      data.map((pokemon) => {
+        return (
+          <Card
+            img={pokemon.sprite}
+            name={pokemon.name}
+            type={pokemon.type}
+            num={pokemon.number}
+            key={pokemon.number}
+          />
+        );
+      })
     );
-  });
+  }, [data]);
 
   return (
     <div
