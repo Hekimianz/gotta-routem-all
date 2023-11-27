@@ -7,13 +7,16 @@ import {
 import styles from "./assets/css/app.module.css";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import PokemonDetails from "./pages/PokemonDetails";
+import data from "./assets/mockData";
 
 function App() {
   const appRouter = createBrowserRouter(
     createRoutesFromElements(
       <>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home data={data} />} />
         <Route path="/about" element={<About />} />
+        <Route path="/details/:name" element={<PokemonDetails data={data} />} />
       </>
     )
   );

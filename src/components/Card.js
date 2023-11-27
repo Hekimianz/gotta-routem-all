@@ -1,8 +1,13 @@
 import styles from "../assets/css/card.module.css";
+import { useNavigate } from "react-router-dom";
 
 function Card({ img, name, type, cat, num }) {
+  const navigate = useNavigate();
+  function pokemonClickHandler() {
+    navigate(`/details/${name}`);
+  }
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onClick={pokemonClickHandler}>
       <img src={img} alt="sprite" className={styles.sprite} />
       <h1 className={styles.name}>{name}</h1>
       <span className={styles.type}>Type: {type}</span>

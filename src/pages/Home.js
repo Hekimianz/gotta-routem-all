@@ -1,8 +1,8 @@
 import styles from "../assets/css/home.module.css";
 import Nav from "../components/Nav";
 import Card from "../components/Card";
-import data from "../assets/mockData";
-function Home() {
+
+function Home({ data }) {
   const cards = data.map((pokemon) => {
     return (
       <Card
@@ -15,6 +15,7 @@ function Home() {
       />
     );
   });
+
   return (
     <div
       style={{
