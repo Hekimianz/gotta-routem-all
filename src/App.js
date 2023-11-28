@@ -12,10 +12,15 @@ import PokemonDetails from "./pages/PokemonDetails";
 
 function App() {
   const [data, setData] = useState([]);
+  const [page, setPage] = useState(0);
   useEffect(() => {
     async function getData() {
       const finalData = [];
-      for (let i = 1; i <= 20; i++) {
+      for (
+        let i = page === 50 ? 1001 : page * 20 + 1;
+        i <= (page === 50 ? 1017 : page * 20 + 20);
+        i++
+      ) {
         await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
           .then((response) => response.json())
           .then((final) => {
@@ -30,7 +35,7 @@ function App() {
       setData(finalData);
     }
     getData();
-  }, []);
+  }, [page]);
 
   // Format pokemons name
   const formatName = (name) => {
@@ -51,7 +56,10 @@ function App() {
   const appRouter = createBrowserRouter(
     createRoutesFromElements(
       <>
-        <Route path="/" element={<Home data={data} />} />
+        <Route
+          path="/"
+          element={<Home data={data} pageSetter={setPage} currentPage={page} />}
+        />
         <Route path="/about" element={<About />} />
         <Route path="/details/:name" element={<PokemonDetails data={data} />} />
       </>
