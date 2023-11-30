@@ -1,8 +1,10 @@
 import logo from "../assets/logo.png";
 import styles from "../assets/css/nav.module.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
-function Nav() {
+function Nav({ data, dataSetter }) {
+  const [searchValue, setSearchValue] = useState("");
   const types = ["Fire", "Water", "Plant"];
   function defineStyle(type) {
     switch (type) {
@@ -16,6 +18,15 @@ function Nav() {
         break;
     }
   }
+
+  function searchHandler(e) {
+    setSearchValue(e.target.value);
+  }
+
+  function submitHandler(e) {
+    e.preventDefault();
+  }
+
   const typesBtns = types.map((type) => {
     return (
       <li className={defineStyle(type)} key={type}>
@@ -31,11 +42,13 @@ function Nav() {
         className={styles.logo}
         alt="react logo with pokeball in middle"
       />
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={submitHandler}>
         <input
           className={styles.input}
           type="text"
           placeholder="Search Pokémon"
+          value={searchValue}
+          onChange={searchHandler}
         />
         <button className={styles.searchBtn} type="submit">
           Search

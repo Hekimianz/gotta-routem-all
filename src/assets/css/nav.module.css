@@ -51,12 +51,15 @@
   background-color: #f7e155;
   cursor: pointer;
   font-weight: bold;
-
+  transition: 0.2s all;
   padding: 5px 10px;
 }
 
 .searchBtn:hover {
-  background-color: #9a8c34;
+  background-color: rgb(207, 232, 247);
+  color: #383000;
+  font-weight: bold;
+  transform: scale(1.1);
 }
 
 .about {
