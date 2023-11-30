@@ -34,6 +34,17 @@ function App() {
           number: d.id,
           type: getTypes(d),
           sprite: d.sprites["front_default"],
+          species: d.species.url,
+          height: d.height,
+          weight: d.weight,
+          stats: {
+            hp: d.stats[0]["base_stat"],
+            attack: d.stats[1]["base_stat"],
+            defense: d.stats[2]["base_stat"],
+            spAttack: d.stats[3]["base_stat"],
+            spDefense: d.stats[4]["base_stat"],
+            speed: d.stats[5]["base_stat"],
+          },
         },
       ]);
     });
