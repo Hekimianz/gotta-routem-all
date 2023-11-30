@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 function Home({ data, dataSetter, pageSetter, currentPage }) {
   const [cards, setCards] = useState([]);
-  const [pageInput, setPageInput] = useState(1);
+  const [pageInput, setPageInput] = useState("");
 
   useEffect(() => {
     if (data) {

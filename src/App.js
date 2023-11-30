@@ -47,36 +47,6 @@ function App() {
     fetchData();
   }, [rawData, page]);
 
-  // {
-  //   name: formatName(d.name),
-  //   number: d.id,
-  //   type: getTypes(d),
-  //   sprite: d.sprites["front_default"],
-  // },
-  // useEffect(() => {
-  //   async function getData() {
-  //     const finalData = [];
-  //     for (
-  //       let i = page === 50 ? 1001 : page * 20 + 1;
-  //       i <= (page === 50 ? 1017 : page * 20 + 20);
-  //       i++
-  //     ) {
-  //       await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
-  //         .then((response) => response.json())
-  //         .then((final) => {
-  //           finalData.push({
-  //             name: formatName(final.name),
-  //             type: getTypes(final),
-  //             number: final.id,
-  //             sprite: final.sprites["front_default"],
-  //           });
-  //         });
-  //     }
-  //     setData(finalData);
-  //   }
-  //   getData();
-  // }, [page]);
-
   // Format pokemons name
   const formatName = (name) => {
     const firstLetter = name.split("")[0].toUpperCase();
