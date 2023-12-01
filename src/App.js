@@ -85,6 +85,9 @@ function App() {
               dataSetter={setData}
               pageSetter={setPage}
               currentPage={page}
+              rawData={rawData}
+              rawDataSetter={setRawData}
+              fetchRawData={fetchRawData}
             />
           }
         />

@@ -3,37 +3,28 @@ import styles from "../assets/css/nav.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-function Nav({ data, dataSetter }) {
+function Nav({ rawData, rawDataSetter, fetchRawData }) {
   const [searchValue, setSearchValue] = useState("");
-  const types = ["Fire", "Water", "Plant"];
-  function defineStyle(type) {
-    switch (type) {
-      case "Fire":
-        return styles.fire;
-      case "Water":
-        return styles.water;
-      case "Plant":
-        return styles.plant;
-      default:
-        break;
-    }
-  }
 
   function searchHandler(e) {
     setSearchValue(e.target.value);
+    if (!searchValue || searchValue === "") {
+      return fetchRawData();
+    } else {
+      const results = rawData.filter((entry) =>
+        entry.name.includes(searchValue.toLowerCase())
+      );
+      rawDataSetter(results);
+    }
   }
 
   function submitHandler(e) {
     e.preventDefault();
+    if (searchValue === "") {
+      return fetchRawData();
+    }
   }
 
-  const typesBtns = types.map((type) => {
-    return (
-      <li className={defineStyle(type)} key={type}>
-        {type}
-      </li>
-    );
-  });
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Gotta Route 'em All</h1>
@@ -46,7 +37,6 @@ function Nav({ data, dataSetter }) {
         <input
           className={styles.input}
           type="text"
-          placeholder="Search Pokémon"
           value={searchValue}
           onChange={searchHandler}
         />
@@ -54,7 +44,6 @@ function Nav({ data, dataSetter }) {
           Search
         </button>
       </form>
-      <ul className={styles.typesCont}>{typesBtns}</ul>
       <Link className={styles.about} to="/about">
         About
       </Link>

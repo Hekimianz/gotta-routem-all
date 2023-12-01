@@ -3,7 +3,15 @@ import Nav from "../components/Nav";
 import Card from "../components/Card";
 import { useEffect, useState } from "react";
 
-function Home({ data, dataSetter, pageSetter, currentPage }) {
+function Home({
+  data,
+  dataSetter,
+  pageSetter,
+  currentPage,
+  rawData,
+  rawDataSetter,
+  fetchRawData,
+}) {
   const [cards, setCards] = useState([]);
   const [pageInput, setPageInput] = useState("");
 
@@ -63,7 +71,11 @@ function Home({ data, dataSetter, pageSetter, currentPage }) {
         paddingBottom: "50px",
       }}
     >
-      <Nav data={data} dataSetter={dataSetter} />
+      <Nav
+        rawData={rawData}
+        rawDataSetter={rawDataSetter}
+        fetchRawData={fetchRawData}
+      />
       <div className={styles.cardsCont}>{cards}</div>
       <div className={styles.buttonsCont}>
         <button
