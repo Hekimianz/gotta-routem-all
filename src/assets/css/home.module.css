@@ -1,0 +1,62 @@
+.cardsCont {
+  display: grid;
+  align-self: center;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 50px;
+  margin-bottom: 50px;
+}
+
+.buttonsCont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.next,
+.back {
+  margin: 0 50px;
+  background-color: #f7e155;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 5px 15px;
+  border-radius: 4px;
+  transition: 0.2s all;
+}
+
+.next:hover,
+.back:hover,
+.go:hover {
+  background-color: rgb(207, 232, 247);
+  color: #383000;
+  font-weight: bold;
+  transform: scale(1.1);
+}
+
+.disabled {
+  margin: 0 50px;
+  background-color: #f7c15545;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 5px 15px;
+  border-radius: 4px;
+  transition: 0.2s all;
+  cursor: not-allowed;
+}
+
+.go {
+  background-color: #f7e155;
+  border: none;
+  border-radius: 4px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+
+.pageSearch {
+  border-radius: 4px;
+  border: none;
+  padding-left: 8px;
+  width: 110px;
+}
